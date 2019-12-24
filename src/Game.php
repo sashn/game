@@ -6,10 +6,19 @@ namespace Game;
 final class Game
 {
 	private $players;
+    private $hasStarted = false;
+    private $hasEnded = false;
 
-    public function __construct(array $players)
+    public function __construct(array $players = [])
     {
-    	$this->players = $players;
+        $this->players = $players;
+    }
+
+    public function registerPlayer(Player $player)
+    {
+        if (!$this->hasStarted && !$this->hasEnded) {
+            $this->players[] = $player;
+        }
     }
 
     public function getWinner(): Player
@@ -30,7 +39,21 @@ final class Game
     	return $this->players[0]->getProductQuantity();
     }
 
+    public function hasStarted(): bool
+    {
+        return $this->hasStarted;
+    }
+
+    public function start(): void
+    {
+        if (empty($this->players)) {
+            throw new GameStartedWithNoPlayersException;
+        }
+        $this->hasStarted = true;
+    }
+
     public function end(): void
     {
+        $this->hasEnded = true;
     }
 }
