@@ -2,6 +2,7 @@
 
 ## run tests
 vendor\bin\phpunit tests
+vendor\bin\phpunit tests --filter specificTest
 
 ## user stories
 - a game has players

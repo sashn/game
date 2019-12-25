@@ -16,9 +16,13 @@ final class Game
 
     public function registerPlayer(Player $player)
     {
-        if (!$this->hasStarted && !$this->hasEnded) {
-            $this->players[] = $player;
+        if ($this->hasEnded) {
+            throw new GameHasEndedException;
         }
+        if ($this->hasStarted) {
+            throw new GameHasStartedException;
+        }
+        $this->players[] = $player;
     }
 
     public function getWinner(): Player
@@ -32,11 +36,6 @@ final class Game
     		}
     	}
         return $winner;
-    }
-    
-    public function getPlayerOnesProductQuantity(): int
-    {
-    	return $this->players[0]->getProductQuantity();
     }
 
     public function hasStarted(): bool
