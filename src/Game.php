@@ -3,15 +3,19 @@ declare(strict_types=1);
 
 namespace Game;
 
-final class Game
+class Game
 {
-	private $players;
-    private $hasStarted = false;
-    private $hasEnded = false;
+	protected $players = [];
+    protected $hasStarted = false;
+    protected $hasEnded = false;
+    protected $gameConfiguration;
 
-    public function __construct(array $players = [])
+    public function __construct(GameConfiguration $gameConfiguration = null)
     {
-        $this->players = $players;
+        if ($gameConfiguration === null) {
+            $gameConfiguration = new GameConfiguration;
+        }
+        $this->gameConfiguration = $gameConfiguration;
     }
 
     public function registerPlayer(Player $player)
@@ -22,20 +26,10 @@ final class Game
         if ($this->hasStarted) {
             throw new GameHasStartedException;
         }
+        if (count($this->players) === $this->gameConfiguration->getMaximumPlayers()) {
+            throw new TooManyPlayersException;
+        }
         $this->players[] = $player;
-    }
-
-    public function getWinner(): Player
-    {
-    	$winner = false;
-    	$highestQuantity = 0;
-    	foreach ($this->players as $player) {
-    		if ($player->getProductQuantity() > $highestQuantity) {
-    			$highestQuantity = $player->getProductQuantity();
-    			$winner = $player;
-    		}
-    	}
-        return $winner;
     }
 
     public function hasStarted(): bool
@@ -47,6 +41,9 @@ final class Game
     {
         if (empty($this->players)) {
             throw new GameStartedWithNoPlayersException;
+        }
+        if (count($this->players) < $this->gameConfiguration->getMinimumPlayers()) {
+            throw new TooFewPlayersException;
         }
         $this->hasStarted = true;
     }

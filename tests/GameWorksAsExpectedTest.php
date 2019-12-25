@@ -9,9 +9,9 @@ final class GameWorksAsExpectedTest extends TestCase
 {
     public function testPlayerWithMostProductBoughtWins(): void
     {
-    	$gameOne = new Game;
-        $playerOne = new Player($gameOne);
-        $playerTwo = new Player($gameOne);
+    	$gameOne = new ProductGame;
+        $playerOne = new ProductGamePlayer($gameOne);
+        $playerTwo = new ProductGamePlayer($gameOne);
         $gameOne->registerPlayer($playerOne);
         $gameOne->registerPlayer($playerTwo);
         $gameOne->start();
@@ -23,9 +23,9 @@ final class GameWorksAsExpectedTest extends TestCase
             $result
         );
 
-        $gameTwo = new Game;
-        $playerThree = new Player($gameTwo);
-        $playerFour = new Player($gameTwo);
+        $gameTwo = new ProductGame;
+        $playerThree = new ProductGamePlayer($gameTwo);
+        $playerFour = new ProductGamePlayer($gameTwo);
         $gameTwo->registerPlayer($playerThree);
         $gameTwo->registerPlayer($playerFour);
         $gameTwo->start();

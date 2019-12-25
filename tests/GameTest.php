@@ -14,7 +14,7 @@ final class GameTest extends TestCase
         $game->start();
     }
 
-    public function testGameCantBeStartedForPlayerToBeRegistered(): void
+    public function testPlayerCantBeRegisteredIfGameHasStarted(): void
     {
         $this->expectException(GameHasStartedException::class);
         $game = new Game;
@@ -25,7 +25,7 @@ final class GameTest extends TestCase
         $game->registerPlayer($playerTwo);
     }
 
-    public function testGameCantBeEndedForPlayerToBeRegistered(): void
+    public function testPlayerCantBeRegisteredIfGameHasEnded(): void
     {
         $this->expectException(GameHasEndedException::class);
         $game = new Game;
@@ -41,4 +41,27 @@ final class GameTest extends TestCase
 //     {
 		// TODO
 //     }
+
+    public function testMinimumPlayerLimit(): void
+    {
+        $this->expectException(TooFewPlayersException::class);
+        $gameConfiguration = new GameConfiguration;
+        $gameConfiguration->setMinimumPlayers(2);
+        $game = new Game($gameConfiguration);
+        $playerOne = new Player($game);
+        $game->registerPlayer($playerOne);
+        $game->start();
+    }
+
+    public function testMaximumPlayerLimit(): void
+    {
+        $this->expectException(TooManyPlayersException::class);
+        $gameConfiguration = new GameConfiguration;
+        $gameConfiguration->setMaximumPlayers(1);
+        $game = new Game($gameConfiguration);
+        $playerOne = new Player($game);
+        $playerTwo = new Player($game);
+        $game->registerPlayer($playerOne);
+        $game->registerPlayer($playerTwo);
+    }
 }
