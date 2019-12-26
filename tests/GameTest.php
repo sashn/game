@@ -42,9 +42,8 @@ final class GameTest extends TestCase
         $this->expectException(PlayerAlreadyRegisteredException::class);
         $game = new Game;
         $playerOne = new Player($game);
-        $playerTwo = new Player($game);
         $game->registerPlayer($playerOne);
-        $game->registerPlayer($playerTwo);
+        $game->registerPlayer($playerOne);
     }
 
     public function testMinimumPlayerLimit(): void

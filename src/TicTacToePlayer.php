@@ -12,7 +12,7 @@ final class TicTacToePlayer extends Player
 
     public function claimField(TicTacToeField $field): void
     {
-    	if ($this->game->getActivePlayer()->getName() != $this->getName()) {
+    	if (!$this->game->getActivePlayer()->is($this)) {
     		throw new NotThisPlayersTurnException;
     	}
         $field->claim($this);

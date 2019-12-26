@@ -30,7 +30,7 @@ class Game
             throw new TooManyPlayersException;
         }
         foreach ($this->players as $registeredPlayer) {
-            if ($registeredPlayer->getName() === $player->getName()) {
+            if ($registeredPlayer->is($player)) {
                 throw new PlayerAlreadyRegisteredException;
             }
         }

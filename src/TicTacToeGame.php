@@ -25,7 +25,7 @@ final class TicTacToeGame extends Game
 
     public function setNextPlayerAsActive(): void
     {
-    	if ($this->activePlayer === $this->players[0]) {
+    	if ($this->activePlayer->is($this->players[0])) {
     		$this->activePlayer = $this->players[1];
     	} else {
     		$this->activePlayer = $this->players[0];
