@@ -10,9 +10,9 @@ final class TicTacToePlayer extends TurnBasedGamePlayer
         parent::__construct($game, $name);
     }
 
-    public function claimField(TicTacToeField $field): void
+    public function claimField(Coordinates $coordinates): void
     {
     	parent::takeTurnBasedAction();
-        $field->claim($this);
+        $this->game->claimField($coordinates, $this);
     }
 }
