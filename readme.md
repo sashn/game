@@ -36,6 +36,7 @@
 - define a general handle for actions that can only be taken (by players) when game is in progress
 - encapsulate board functionality into own class
 - distribute classes into folders
+ - did some. needs more work
 - update model diagrams
 - check user story completeness
 - check test coverage (maybe with a tool)

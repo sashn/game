@@ -1,7 +1,10 @@
 <?php
 declare(strict_types=1);
 
-namespace Game;
+namespace Game\ProductGame;
+
+use Game\Game;
+use Game\Player;
 
 final class ProductGame extends Game
 {

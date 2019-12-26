@@ -1,9 +1,10 @@
 <?php
 declare(strict_types=1);
 
-namespace Game;
+namespace Game\TicTacToe;
 
 use PHPUnit\Framework\TestCase;
+use Game\Coordinates;
 
 final class TicTacToeGameTest extends TestCase
 {

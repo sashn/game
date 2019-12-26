@@ -1,9 +1,11 @@
 <?php
 declare(strict_types=1);
 
-namespace Game;
+namespace Game\ProductGame;
 
 use PHPUnit\Framework\TestCase;
+
+use Game\GameHasNotStartedException;
 
 final class ProductGamePlayerTest extends TestCase
 {

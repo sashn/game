@@ -1,7 +1,10 @@
 <?php
 declare(strict_types=1);
 
-namespace Game;
+namespace Game\TicTacToe;
+
+use Game\TurnBasedGame\TurnBasedGamePlayer;
+use Game\Coordinates;
 
 final class TicTacToePlayer extends TurnBasedGamePlayer
 {

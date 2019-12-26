@@ -4,7 +4,10 @@
     },
     "autoload": {
         "psr-4": {
-        	"Game\\":"src/"
+        	"Game\\":"src/",
+        	"Game\\ProductGame\\":"src/ProductGame/",
+        	"Game\\TicTacToe\\":"src/TicTacToe/",
+        	"Game\\TurnBasedGame\\":"src/TurnBasedGame/"
         }
     }
 }
