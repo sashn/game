@@ -13,14 +13,17 @@ vendor\bin\phpunit tests --filter specificTest
 - a player can only make game actions if the game has started
 - a game can end
 - a game, that has ended, has a result (i.e. a winner)
+
 # tic tac toe game
 
 ## user stories
 - like the game above
-- exactly 2 players, one places "x", the other places "o"
+- exactly 2 players
 - game board of 3x3 fields
-- fields can be empty or have an "x" or an "o"
 - players take alternating turns
-- each turn a player may place their sign in ecactly one field
-- game ends when no field is empty or one player has a horizontal row, vertical or diagonal column filled with their sign
-- if when the game ends a player has a horizontal row, vertical or diagonal column filled with their sign, that player wins
+- starting player is always the first (could be randomized)
+- players are claiming fields (by putting "x"s and "o"s)
+- fields can be empty or have an "x" or an "o"
+- each turn a player claims exactly one field
+- game ends when all fields are claimed or a player has completed row/column/diagonal
+- if when the game ends a player has completed a row/column/diagonal, that player wins

@@ -37,10 +37,15 @@ final class GameTest extends TestCase
         $game->registerPlayer($playerTwo);
     }
 
-//     public function testRegisteredPlayersMustBeUnique(): void
-//     {
-		// TODO
-//     }
+    public function testRegisteredPlayersMustBeUnique(): void
+    {
+        $this->expectException(PlayerAlreadyRegisteredException::class);
+        $game = new Game;
+        $playerOne = new Player($game);
+        $playerTwo = new Player($game);
+        $game->registerPlayer($playerOne);
+        $game->registerPlayer($playerTwo);
+    }
 
     public function testMinimumPlayerLimit(): void
     {

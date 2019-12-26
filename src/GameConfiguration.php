@@ -5,8 +5,14 @@ namespace Game;
 
 final class GameConfiguration
 {
-    private $minimumPlayers = 1;
-    private $maximumPlayers = 999999;
+    private $minimumPlayers;
+    private $maximumPlayers;
+
+    public function __construct(int $minimumPlayers = 1, int $maximumPlayers = 999999)
+    {
+        $this->minimumPlayers = $minimumPlayers;
+        $this->maximumPlayers = $maximumPlayers;
+    }
 
     public function getMinimumPlayers(): int
     {

@@ -29,12 +29,22 @@ class Game
         if (count($this->players) === $this->gameConfiguration->getMaximumPlayers()) {
             throw new TooManyPlayersException;
         }
+        foreach ($this->players as $registeredPlayer) {
+            if ($registeredPlayer->getName() === $player->getName()) {
+                throw new PlayerAlreadyRegisteredException;
+            }
+        }
         $this->players[] = $player;
     }
 
     public function hasStarted(): bool
     {
         return $this->hasStarted;
+    }
+
+    public function hasEnded(): bool
+    {
+        return $this->hasEnded;
     }
 
     public function start(): void
