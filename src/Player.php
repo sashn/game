@@ -26,7 +26,7 @@ class Player
         return $this->id;
     }
 
-    public function is(Player $player): bool
+    public function equals(Player $player): bool
     {
         // this could compare names instead. depends on what should be unique for a player
         return $this->id === $player->getId();

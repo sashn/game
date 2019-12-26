@@ -12,7 +12,7 @@ class TurnBasedGamePlayer extends Player
 
     public function takeTurnBasedAction(): void
     {
-    	if (!$this->game->getActivePlayer()->is($this)) {
+    	if (!$this->game->getActivePlayer()->equals($this)) {
     		throw new NotThisPlayersTurnException;
     	}
         $this->game->setNextPlayerAsActive();

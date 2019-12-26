@@ -30,6 +30,7 @@ vendor\bin\phpunit tests --filter specificTest
 
 # TODO
 - is there some interface that can make objects comparable?
+  - https://github.com/Fleshgrinder/php-comparable, but for now i'll just use `equals()` method
 - encapsulate game state/progress(?) into own class
 - define a general handle for actions that can only be taken (by players) when game is in progress
 - encapsulate board functionality into own class

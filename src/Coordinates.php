@@ -24,7 +24,7 @@ final class Coordinates
         return $this->verticalCoordinate;
     }
 
-    public function is(Coordinates $coordinates): bool
+    public function equals(Coordinates $coordinates): bool
     {
         return 
             $this->verticalCoordinate === $coordinates->getVerticalCoordinate()

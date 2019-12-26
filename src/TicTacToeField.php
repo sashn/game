@@ -25,7 +25,7 @@ final class TicTacToeField
         if ($this->claimedByPlayer === false) {
             return false;
         }
-        return $this->claimedByPlayer->is($player);
+        return $this->claimedByPlayer->equals($player);
     }
 
 }

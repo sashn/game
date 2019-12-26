@@ -137,7 +137,7 @@ final class TicTacToeBoard
         ];
         $isPartOfDiagonal = false;
         foreach ($descendingDiagonalCoordinates as $diagonalCoordinates) {
-            if ($diagonalCoordinates->is($coordinates)) {
+            if ($diagonalCoordinates->equals($coordinates)) {
                 $isPartOfDiagonal = true;
                 break;
             }
@@ -162,7 +162,7 @@ final class TicTacToeBoard
         ];
         $isPartOfDiagonal = false;
         foreach ($ascendingDiagonalCoordinates as $diagonalCoordinates) {
-            if ($diagonalCoordinates->is($coordinates)) {
+            if ($diagonalCoordinates->equals($coordinates)) {
                 $isPartOfDiagonal = true;
                 break;
             }

@@ -20,7 +20,7 @@ class TurnBasedGame extends Game
 
     public function setNextPlayerAsActive(): void
     {
-    	if ($this->activePlayer->is($this->players[0])) {
+    	if ($this->activePlayer->equals($this->players[0])) {
     		$this->activePlayer = $this->players[1];
     	} else {
     		$this->activePlayer = $this->players[0];
