@@ -5,7 +5,7 @@ namespace Game;
 
 use PHPUnit\Framework\TestCase;
 
-final class TicTacToePlayerTest extends TestCase
+final class TicTacToeFieldTest extends TestCase
 {
     public function testCantClaimAlreadyClaimedField(): void
     {

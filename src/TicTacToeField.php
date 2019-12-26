@@ -17,12 +17,18 @@ final class TicTacToeField
 
     public function claim(TicTacToePlayer $player): void
     {
+        if ($this->claimedByPlayer != false) {
+            throw new TicTacToeFieldAlreadyClaimedException("field already claimed by player " . $this->claimedByPlayer->getName());
+        }
         $this->claimedByPlayer = $player;
     }
 
-    public function isClaimed(): bool
+    public function getClaimedByPlayer(): TicTacToePlayer
     {
-        return $this->claimedByPlayer != false;
+        if ($this->claimedByPlayer === false) {
+            throw new TicTacToeFieldNotYetClaimedException;
+        }
+        return $this->claimedByPlayer;
     }
 
 }

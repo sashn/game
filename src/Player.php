@@ -16,6 +16,11 @@ class Player
     	$this->name = $name;
     }
 
+    public function getName(): string
+    {
+        return $this->name;
+    }
+
     public function getId(): string
     {
         return $this->id;
