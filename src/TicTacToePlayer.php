@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 namespace Game;
 
-final class TicTacToePlayer extends Player
+final class TicTacToePlayer extends TurnBasedGamePlayer
 {
     public function __construct(TicTacToeGame $game, string $name = 'John Doe')
     {
@@ -12,10 +12,7 @@ final class TicTacToePlayer extends Player
 
     public function claimField(TicTacToeField $field): void
     {
-    	if (!$this->game->getActivePlayer()->is($this)) {
-    		throw new NotThisPlayersTurnException;
-    	}
+    	parent::takeTurnBasedAction();
         $field->claim($this);
-        $this->game->setNextPlayerAsActive();
     }
 }
