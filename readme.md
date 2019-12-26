@@ -1,8 +1,8 @@
 # game
 
 ## run tests
-vendor\bin\phpunit tests
-vendor\bin\phpunit tests --filter specificTest
+- `vendor\bin\phpunit tests`
+- `vendor\bin\phpunit tests --filter specificTest`
 
 ## user stories
 - a game has players
@@ -32,6 +32,7 @@ vendor\bin\phpunit tests --filter specificTest
 - is there some interface that can make objects comparable?
   - https://github.com/Fleshgrinder/php-comparable, but for now i'll just use `equals()` method
 - encapsulate game state/progress(?) into own class
+  - Process class
 - define a general handle for actions that can only be taken (by players) when game is in progress
 - encapsulate board functionality into own class
 - distribute classes into folders

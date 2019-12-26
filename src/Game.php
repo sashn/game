@@ -3,11 +3,9 @@ declare(strict_types=1);
 
 namespace Game;
 
-class Game
+class Game extends Process
 {
 	protected $players = [];
-    protected $hasStarted = false;
-    protected $hasEnded = false;
     protected $gameConfiguration;
     protected $winner = false;
 
@@ -38,16 +36,6 @@ class Game
         $this->players[] = $player;
     }
 
-    public function hasStarted(): bool
-    {
-        return $this->hasStarted;
-    }
-
-    public function hasEnded(): bool
-    {
-        return $this->hasEnded;
-    }
-
     public function start(): void
     {
         if (empty($this->players)) {
@@ -56,12 +44,7 @@ class Game
         if (count($this->players) < $this->gameConfiguration->getMinimumPlayers()) {
             throw new TooFewPlayersException;
         }
-        $this->hasStarted = true;
-    }
-
-    public function end(): void
-    {
-        $this->hasEnded = true;
+        parent::start();
     }
 
     public function getWinner()
