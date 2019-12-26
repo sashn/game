@@ -9,6 +9,7 @@ class Game
     protected $hasStarted = false;
     protected $hasEnded = false;
     protected $gameConfiguration;
+    protected $winner = false;
 
     public function __construct(GameConfiguration $gameConfiguration = null)
     {
@@ -61,5 +62,15 @@ class Game
     public function end(): void
     {
         $this->hasEnded = true;
+    }
+
+    public function getWinner()
+    {
+        return $this->winner;
+    }
+
+    public function setWinner(Player $player): void
+    {
+        $this->winner = $player;
     }
 }

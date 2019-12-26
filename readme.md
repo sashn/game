@@ -27,3 +27,13 @@ vendor\bin\phpunit tests --filter specificTest
 - each turn a player claims exactly one field
 - game ends when all fields are claimed or a player has completed row/column/diagonal
 - if when the game ends a player has completed a row/column/diagonal, that player wins
+
+# TODO
+- is there some interface that can make objects comparable?
+- encapsulate game state/progress(?) into own class
+- define a general handle for actions that can only be taken (by players) when game is in progress
+- encapsulate board functionality into own class
+- distribute classes into folders
+- update model diagrams
+- check user story completeness
+- check test coverage (maybe with a tool)

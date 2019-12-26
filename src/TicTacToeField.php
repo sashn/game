@@ -15,12 +15,17 @@ final class TicTacToeField
         $this->claimedByPlayer = $player;
     }
 
-    public function getClaimedByPlayer(): TicTacToePlayer
+    public function isClaimed(): bool
+    {
+        return $this->claimedByPlayer != false;
+    }
+
+    public function isClaimedByPlayer(TicTacToePlayer $player): bool
     {
         if ($this->claimedByPlayer === false) {
-            throw new TicTacToeFieldNotYetClaimedException;
+            return false;
         }
-        return $this->claimedByPlayer;
+        return $this->claimedByPlayer->is($player);
     }
 
 }

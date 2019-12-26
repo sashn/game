@@ -23,4 +23,11 @@ final class Coordinates
     {
         return $this->verticalCoordinate;
     }
+
+    public function is(Coordinates $coordinates): bool
+    {
+        return 
+            $this->verticalCoordinate === $coordinates->getVerticalCoordinate()
+            && $this->horizontalCoordinate === $coordinates->getHorizontalCoordinate();
+    }
 }

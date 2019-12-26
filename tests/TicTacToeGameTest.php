@@ -51,4 +51,96 @@ final class TicTacToeGameTest extends TestCase
             $result
         );
     }
+
+    public function testPlayerWinsWhenFilledVerticalColumn(): void
+    {
+        $gameOne = new TicTacToeGame;
+        $playerOne = new TicTacToePlayer($gameOne);
+        $playerTwo = new TicTacToePlayer($gameOne);
+        $gameOne->registerPlayer($playerOne);
+        $gameOne->registerPlayer($playerTwo);
+        $gameOne->start();
+        $playerOne->claimField(new Coordinates(0,0));
+        $playerTwo->claimField(new Coordinates(0,2));
+        $playerOne->claimField(new Coordinates(1,0));
+        $playerTwo->claimField(new Coordinates(0,1));
+        $playerOne->claimField(new Coordinates(1,1));
+        $playerTwo->claimField(new Coordinates(2,1));
+        $playerOne->claimField(new Coordinates(1,2));
+        self::assertTrue($gameOne->hasEnded());
+        $result = $gameOne->getWinner();
+        $this->assertEquals(
+            $playerOne,
+            $result
+        );
+    }
+
+    public function testPlayerWinsWhenFilledDescendingDiagonal(): void
+    {
+        $gameOne = new TicTacToeGame;
+        $playerOne = new TicTacToePlayer($gameOne);
+        $playerTwo = new TicTacToePlayer($gameOne);
+        $gameOne->registerPlayer($playerOne);
+        $gameOne->registerPlayer($playerTwo);
+        $gameOne->start();
+        $playerOne->claimField(new Coordinates(1,0));
+        $playerTwo->claimField(new Coordinates(0,0));
+        $playerOne->claimField(new Coordinates(0,1));
+        $playerTwo->claimField(new Coordinates(1,1));
+        $playerOne->claimField(new Coordinates(1,2));
+        $playerTwo->claimField(new Coordinates(2,2));
+        self::assertTrue($gameOne->hasEnded());
+        $result = $gameOne->getWinner();
+        $this->assertEquals(
+            $playerTwo,
+            $result
+        );
+    }
+
+    public function testPlayerWinsWhenFilledAscendingDiagonal(): void
+    {
+        $gameOne = new TicTacToeGame;
+        $playerOne = new TicTacToePlayer($gameOne);
+        $playerTwo = new TicTacToePlayer($gameOne);
+        $gameOne->registerPlayer($playerOne);
+        $gameOne->registerPlayer($playerTwo);
+        $gameOne->start();
+        $playerOne->claimField(new Coordinates(1,0));
+        $playerTwo->claimField(new Coordinates(0,2));
+        $playerOne->claimField(new Coordinates(0,1));
+        $playerTwo->claimField(new Coordinates(1,1));
+        $playerOne->claimField(new Coordinates(0,0));
+        $playerTwo->claimField(new Coordinates(2,0));
+        self::assertTrue($gameOne->hasEnded());
+        $result = $gameOne->getWinner();
+        $this->assertEquals(
+            $playerTwo,
+            $result
+        );
+    }
+
+    public function testGameCanEndWithoutWinner(): void
+    {
+        $gameOne = new TicTacToeGame;
+        $playerOne = new TicTacToePlayer($gameOne);
+        $playerTwo = new TicTacToePlayer($gameOne);
+        $gameOne->registerPlayer($playerOne);
+        $gameOne->registerPlayer($playerTwo);
+        $gameOne->start();
+        $playerOne->claimField(new Coordinates(1,1));
+        $playerTwo->claimField(new Coordinates(0,0));
+        $playerOne->claimField(new Coordinates(1,0));
+        $playerTwo->claimField(new Coordinates(1,2));
+        $playerOne->claimField(new Coordinates(0,1));
+        $playerTwo->claimField(new Coordinates(2,1));
+        $playerOne->claimField(new Coordinates(0,2));
+        $playerTwo->claimField(new Coordinates(2,0));
+        $playerOne->claimField(new Coordinates(2,2));
+        self::assertTrue($gameOne->hasEnded());
+        $result = $gameOne->getWinner();
+        $this->assertEquals(
+            false,
+            $result
+        );
+    }
 }
