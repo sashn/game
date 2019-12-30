@@ -12,9 +12,7 @@ class ProductGamePlayer extends Player
 
     public function buyProduct(int $quantity): void
     {
-        if (!$this->game->hasStarted()) {
-            throw new GameHasNotStartedException;
-        }
+        $this->game->mustBeInProgress();
     	$this->productQuantity += $quantity;
     }
 

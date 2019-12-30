@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace Game;
 
+use Game\Process\CantHaveStartedException;
 use PHPUnit\Framework\TestCase;
 
 final class GameTest extends TestCase
@@ -16,23 +17,11 @@ final class GameTest extends TestCase
 
     public function testPlayerCantBeRegisteredIfGameHasStarted(): void
     {
-        $this->expectException(GameHasStartedException::class);
+        $this->expectException(CantHaveStartedException::class);
         $game = new Game;
         $playerOne = new Player;
         $game->registerPlayer($playerOne);
         $game->start();
-        $playerTwo = new Player;
-        $game->registerPlayer($playerTwo);
-    }
-
-    public function testPlayerCantBeRegisteredIfGameHasEnded(): void
-    {
-        $this->expectException(GameHasEndedException::class);
-        $game = new Game;
-        $playerOne = new Player;
-        $game->registerPlayer($playerOne);
-        $game->start();
-        $game->end();
         $playerTwo = new Player;
         $game->registerPlayer($playerTwo);
     }

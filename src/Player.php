@@ -6,7 +6,11 @@ namespace Game;
 class Player
 {
     protected $id;
-	protected $game;
+
+    /**
+     * @var Game
+     */
+    protected $game;
     protected $name;
 
     public function __construct(string $name = 'John Doe')

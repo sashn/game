@@ -3,6 +3,8 @@ declare(strict_types=1);
 
 namespace Game;
 
+use Game\Process\Process;
+
 class Game extends Process
 {
 	protected $players = [];
@@ -19,12 +21,7 @@ class Game extends Process
 
     public function registerPlayer(Player $player)
     {
-        if ($this->hasEnded) {
-            throw new GameHasEndedException;
-        }
-        if ($this->hasStarted) {
-            throw new GameHasStartedException;
-        }
+        $this->cantHaveStarted();
         if (count($this->players) === $this->gameConfiguration->getMaximumPlayers()) {
             throw new TooManyPlayersException;
         }
