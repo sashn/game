@@ -34,10 +34,17 @@ final class Players implements \ArrayAccess, \Countable, \Iterator
         $this->players[] = $player;
     }
 
-    private function cantBeTooManyPlayers(): void
+    public function cantBeTooManyPlayers(): void
     {
         if (count($this->players) === $this->game->getGameConfiguration()->getMaximumPlayers()) {
             throw new TooManyPlayersException;
+        }
+    }
+
+    public function cantBeTooFewPlayers(): void
+    {
+        if (count($this->players) < $this->game->getGameConfiguration()->getMinimumPlayers()) {
+            throw new TooFewPlayersException;
         }
     }
 

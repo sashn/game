@@ -36,9 +36,7 @@ class Game extends Process
 
     public function start(): void
     {
-        if (count($this->players) < $this->gameConfiguration->getMinimumPlayers()) {
-            throw new TooFewPlayersException;
-        }
+        $this->players->cantBeTooFewPlayers();
         parent::start();
     }
 

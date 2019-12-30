@@ -7,7 +7,7 @@ use Game\Game;
 
 class TurnBasedGame extends Game
 {
-	private $activePlayer;
+    private $activePlayer;
 
     public function getActivePlayer(): TurnBasedGamePlayer
     {

@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace Game;
 
 use Game\Players\PlayerAlreadyRegisteredException;
+use Game\Players\TooFewPlayersException;
 use Game\Players\TooManyPlayersException;
 use Game\Process\CantHaveStartedException;
 use PHPUnit\Framework\TestCase;
