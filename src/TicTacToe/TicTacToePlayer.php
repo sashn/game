@@ -8,11 +8,6 @@ use Game\Coordinates;
 
 final class TicTacToePlayer extends TurnBasedGamePlayer
 {
-    public function __construct(TicTacToeGame $game, string $name = 'John Doe')
-    {
-        parent::__construct($game, $name);
-    }
-
     public function claimField(Coordinates $coordinates): void
     {
     	parent::takeTurnBasedAction();

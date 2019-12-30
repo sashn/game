@@ -11,8 +11,8 @@ final class TicTacToeGameTest extends TestCase
     public function testExactlyTwoPlayersCanPlay(): void
     {
         $gameOne = new TicTacToeGame;
-        $playerOne = new TicTacToePlayer($gameOne);
-        $playerTwo = new TicTacToePlayer($gameOne);
+        $playerOne = new TicTacToePlayer;
+        $playerTwo = new TicTacToePlayer;
         $gameOne->registerPlayer($playerOne);
         $gameOne->registerPlayer($playerTwo);
         $gameOne->start();
@@ -23,8 +23,8 @@ final class TicTacToeGameTest extends TestCase
     {
         $this->expectException(TicTacToeFieldAlreadyClaimedException::class);
         $gameOne = new TicTacToeGame;
-        $playerOne = new TicTacToePlayer($gameOne);
-        $playerTwo = new TicTacToePlayer($gameOne);
+        $playerOne = new TicTacToePlayer;
+        $playerTwo = new TicTacToePlayer;
         $gameOne->registerPlayer($playerOne);
         $gameOne->registerPlayer($playerTwo);
         $gameOne->start();
@@ -35,8 +35,8 @@ final class TicTacToeGameTest extends TestCase
     public function testPlayerWinsWhenFilledHorizontalRow(): void
     {
         $gameOne = new TicTacToeGame;
-        $playerOne = new TicTacToePlayer($gameOne);
-        $playerTwo = new TicTacToePlayer($gameOne);
+        $playerOne = new TicTacToePlayer;
+        $playerTwo = new TicTacToePlayer;
         $gameOne->registerPlayer($playerOne);
         $gameOne->registerPlayer($playerTwo);
         $gameOne->start();
@@ -56,8 +56,8 @@ final class TicTacToeGameTest extends TestCase
     public function testPlayerWinsWhenFilledVerticalColumn(): void
     {
         $gameOne = new TicTacToeGame;
-        $playerOne = new TicTacToePlayer($gameOne);
-        $playerTwo = new TicTacToePlayer($gameOne);
+        $playerOne = new TicTacToePlayer;
+        $playerTwo = new TicTacToePlayer;
         $gameOne->registerPlayer($playerOne);
         $gameOne->registerPlayer($playerTwo);
         $gameOne->start();
@@ -79,8 +79,8 @@ final class TicTacToeGameTest extends TestCase
     public function testPlayerWinsWhenFilledDescendingDiagonal(): void
     {
         $gameOne = new TicTacToeGame;
-        $playerOne = new TicTacToePlayer($gameOne);
-        $playerTwo = new TicTacToePlayer($gameOne);
+        $playerOne = new TicTacToePlayer;
+        $playerTwo = new TicTacToePlayer;
         $gameOne->registerPlayer($playerOne);
         $gameOne->registerPlayer($playerTwo);
         $gameOne->start();
@@ -101,8 +101,8 @@ final class TicTacToeGameTest extends TestCase
     public function testPlayerWinsWhenFilledAscendingDiagonal(): void
     {
         $gameOne = new TicTacToeGame;
-        $playerOne = new TicTacToePlayer($gameOne);
-        $playerTwo = new TicTacToePlayer($gameOne);
+        $playerOne = new TicTacToePlayer;
+        $playerTwo = new TicTacToePlayer;
         $gameOne->registerPlayer($playerOne);
         $gameOne->registerPlayer($playerTwo);
         $gameOne->start();
@@ -123,8 +123,8 @@ final class TicTacToeGameTest extends TestCase
     public function testGameCanEndWithoutWinner(): void
     {
         $gameOne = new TicTacToeGame;
-        $playerOne = new TicTacToePlayer($gameOne);
-        $playerTwo = new TicTacToePlayer($gameOne);
+        $playerOne = new TicTacToePlayer;
+        $playerTwo = new TicTacToePlayer;
         $gameOne->registerPlayer($playerOne);
         $gameOne->registerPlayer($playerTwo);
         $gameOne->start();

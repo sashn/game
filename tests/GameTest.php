@@ -18,10 +18,10 @@ final class GameTest extends TestCase
     {
         $this->expectException(GameHasStartedException::class);
         $game = new Game;
-        $playerOne = new Player($game);
+        $playerOne = new Player;
         $game->registerPlayer($playerOne);
         $game->start();
-        $playerTwo = new Player($game);
+        $playerTwo = new Player;
         $game->registerPlayer($playerTwo);
     }
 
@@ -29,11 +29,11 @@ final class GameTest extends TestCase
     {
         $this->expectException(GameHasEndedException::class);
         $game = new Game;
-        $playerOne = new Player($game);
+        $playerOne = new Player;
         $game->registerPlayer($playerOne);
         $game->start();
         $game->end();
-        $playerTwo = new Player($game);
+        $playerTwo = new Player;
         $game->registerPlayer($playerTwo);
     }
 
@@ -41,7 +41,7 @@ final class GameTest extends TestCase
     {
         $this->expectException(PlayerAlreadyRegisteredException::class);
         $game = new Game;
-        $playerOne = new Player($game);
+        $playerOne = new Player;
         $game->registerPlayer($playerOne);
         $game->registerPlayer($playerOne);
     }
@@ -52,7 +52,7 @@ final class GameTest extends TestCase
         $gameConfiguration = new GameConfiguration;
         $gameConfiguration->setMinimumPlayers(2);
         $game = new Game($gameConfiguration);
-        $playerOne = new Player($game);
+        $playerOne = new Player;
         $game->registerPlayer($playerOne);
         $game->start();
     }
@@ -63,8 +63,8 @@ final class GameTest extends TestCase
         $gameConfiguration = new GameConfiguration;
         $gameConfiguration->setMaximumPlayers(1);
         $game = new Game($gameConfiguration);
-        $playerOne = new Player($game);
-        $playerTwo = new Player($game);
+        $playerOne = new Player;
+        $playerTwo = new Player;
         $game->registerPlayer($playerOne);
         $game->registerPlayer($playerTwo);
     }

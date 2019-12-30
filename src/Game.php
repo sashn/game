@@ -33,6 +33,7 @@ class Game extends Process
                 throw new PlayerAlreadyRegisteredException;
             }
         }
+        $player->setGame($this);
         $this->players[] = $player;
     }
 

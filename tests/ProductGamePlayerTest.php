@@ -13,7 +13,7 @@ final class ProductGamePlayerTest extends TestCase
     {
         $this->expectException(GameHasNotStartedException::class);
         $game = new ProductGame;
-        $playerOne = new ProductGamePlayer($game);
+        $playerOne = new ProductGamePlayer;
         $game->registerPlayer($playerOne);
         $playerOne->buyProduct(4);
     }

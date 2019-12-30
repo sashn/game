@@ -7,11 +7,6 @@ use Game\Player;
 
 class TurnBasedGamePlayer extends Player
 {
-    public function __construct(TurnBasedGame $game, string $name = 'John Doe')
-    {
-        parent::__construct($game, $name);
-    }
-
     public function takeTurnBasedAction(): void
     {
     	if (!$this->game->getActivePlayer()->equals($this)) {

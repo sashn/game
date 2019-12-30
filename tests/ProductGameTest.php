@@ -10,8 +10,8 @@ final class ProductGameTest extends TestCase
     public function testPlayerWithMostProductBoughtWins(): void
     {
     	$gameOne = new ProductGame;
-        $playerOne = new ProductGamePlayer($gameOne, 'Jimmy');
-        $playerTwo = new ProductGamePlayer($gameOne, 'Johnny');
+        $playerOne = new ProductGamePlayer('Jimmy');
+        $playerTwo = new ProductGamePlayer('Johnny');
         $gameOne->registerPlayer($playerOne);
         $gameOne->registerPlayer($playerTwo);
         $gameOne->start();
@@ -24,8 +24,8 @@ final class ProductGameTest extends TestCase
         );
 
         $gameTwo = new ProductGame;
-        $playerThree = new ProductGamePlayer($gameTwo, 'Jack');
-        $playerFour = new ProductGamePlayer($gameTwo, 'Jones');
+        $playerThree = new ProductGamePlayer('Jack');
+        $playerFour = new ProductGamePlayer('Jones');
         $gameTwo->registerPlayer($playerThree);
         $gameTwo->registerPlayer($playerFour);
         $gameTwo->start();

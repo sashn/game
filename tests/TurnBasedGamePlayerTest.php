@@ -11,8 +11,8 @@ final class TurnBasedGamePlayerTest extends TestCase
     {
         $this->expectException(NotThisPlayersTurnException::class);
         $gameOne = new TurnBasedGame;
-        $playerOne = new TurnBasedGamePlayer($gameOne);
-        $playerTwo = new TurnBasedGamePlayer($gameOne);
+        $playerOne = new TurnBasedGamePlayer;
+        $playerTwo = new TurnBasedGamePlayer;
         $gameOne->registerPlayer($playerOne);
         $gameOne->registerPlayer($playerTwo);
         $gameOne->start();

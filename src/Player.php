@@ -9,16 +9,20 @@ class Player
 	protected $game;
     protected $name;
 
-    public function __construct(Game $game, string $name = 'John Doe')
+    public function __construct(string $name = 'John Doe')
     {
         $this->id = uniqid();
-        $this->game = $game;
     	$this->name = $name;
     }
 
     public function getName(): string
     {
         return $this->name;
+    }
+
+    public function setGame(Game $game): void
+    {
+        $this->game = $game;
     }
 
     public function getId(): string

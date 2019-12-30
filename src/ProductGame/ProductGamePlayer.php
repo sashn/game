@@ -10,11 +10,6 @@ class ProductGamePlayer extends Player
 {
 	private $productQuantity = 0;
 
-    public function __construct(ProductGame $game, string $name = 'John Doe')
-    {
-        parent::__construct($game, $name);
-    }
-
     public function buyProduct(int $quantity): void
     {
         if (!$this->game->hasStarted()) {
