@@ -6,8 +6,6 @@ namespace Game\ProductGame;
 use Game\Process\MustBeInProgressException;
 use PHPUnit\Framework\TestCase;
 
-use Game\GameHasNotStartedException;
-
 final class ProductGamePlayerTest extends TestCase
 {
     public function testPlayerCanOnlyBuyProductIfGameHasStarted(): void

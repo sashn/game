@@ -8,7 +8,10 @@ use Game\GameConfiguration;
 
 final class TicTacToeGame extends TurnBasedGame
 {
-	private $board;
+    /**
+     * @var TicTacToeBoard
+     */
+    private $board;
 
     public function __construct()
     {

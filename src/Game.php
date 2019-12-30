@@ -3,12 +3,21 @@ declare(strict_types=1);
 
 namespace Game;
 
+use Game\Players\Players;
 use Game\Process\Process;
 
 class Game extends Process
 {
-	protected $players = [];
+    /**
+     * @var Players
+     */
+    protected $players;
+
+    /**
+     * @var GameConfiguration
+     */
     protected $gameConfiguration;
+
     protected $winner = false;
 
     public function __construct(GameConfiguration $gameConfiguration = null)
@@ -17,28 +26,16 @@ class Game extends Process
             $gameConfiguration = new GameConfiguration;
         }
         $this->gameConfiguration = $gameConfiguration;
+        $this->players = new Players($this);
     }
 
     public function registerPlayer(Player $player)
     {
-        $this->cantHaveStarted();
-        if (count($this->players) === $this->gameConfiguration->getMaximumPlayers()) {
-            throw new TooManyPlayersException;
-        }
-        foreach ($this->players as $registeredPlayer) {
-            if ($registeredPlayer->equals($player)) {
-                throw new PlayerAlreadyRegisteredException;
-            }
-        }
-        $player->setGame($this);
-        $this->players[] = $player;
+        $this->players->register($player);
     }
 
     public function start(): void
     {
-        if (empty($this->players)) {
-            throw new GameStartedWithNoPlayersException;
-        }
         if (count($this->players) < $this->gameConfiguration->getMinimumPlayers()) {
             throw new TooFewPlayersException;
         }
@@ -53,5 +50,10 @@ class Game extends Process
     public function setWinner(Player $player): void
     {
         $this->winner = $player;
+    }
+
+    public function getGameConfiguration(): GameConfiguration
+    {
+        return $this->gameConfiguration;
     }
 }
