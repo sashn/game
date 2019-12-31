@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 namespace Game\Process;
 
-class Process
+class Process implements ProcessInterface
 {
     protected $hasStarted = false;
     protected $hasEnded = false;
